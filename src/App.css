@@ -1,38 +1,756 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap');
+
+/* ─── Reset & Global ─────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Nav ────────────────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background-color: #495E57;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav__logo-text {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 1.6rem;
+  color: #F4CE14;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav__link:hover {
+  color: #F4CE14;
+}
+
+@media (max-width: 640px) {
+  .nav__hamburger {
+    display: block;
+  }
+
+  .nav__list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #495E57;
+    padding: 1rem 2rem;
+    gap: 0.75rem;
+  }
+
+  .nav__list--open {
+    display: flex;
+  }
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+
+.header {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-text {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2rem;
+  color: #495E57;
+  font-weight: 700;
+}
+
+/* ─── CallToAction ───────────────────────────────────────────── */
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background-color: #495E57;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta__content {
+  flex: 1 1 320px;
+  max-width: 500px;
+}
+
+.cta__title {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 4rem;
+  color: #F4CE14;
+  margin: 0 0 -0.5rem 0;
+  line-height: 1;
+}
+
+.cta__subtitle {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+.cta__description {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 380px;
+}
+
+.cta__button {
+  display: inline-block;
+  background-color: #F4CE14;
+  color: #333;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.cta__button:hover {
+  background-color: #e0b800;
+}
+
+.cta__image-wrap {
+  flex: 1 1 240px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta__image-placeholder {
+  width: 280px;
+  height: 280px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(244, 206, 20, 0.3);
+}
+
+.cta__image-placeholder span {
+  font-size: 5rem;
+}
+
+/* ─── Specials ───────────────────────────────────────────────── */
+
+.specials {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.specials__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.specials__heading {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.specials__menu-btn {
+  background-color: #495E57;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.specials__menu-btn:hover {
+  background-color: #F4CE14;
+  color: #333;
+}
+
+.specials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.special-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  transition: transform 0.2s;
+}
+
+.special-card:hover {
+  transform: translateY(-4px);
+}
+
+.special-card__image {
+  background-color: #495E57;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.special-card__emoji {
+  font-size: 5rem;
+}
+
+.special-card__category {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: #F4CE14;
+  color: #333;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+
+.special-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.special-card__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.special-card__name {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.special-card__price {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #EE9972;
+  font-weight: 700;
+}
+
+.special-card__description {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.special-card__order-btn {
+  display: inline-block;
+  background-color: #495E57;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.special-card__order-btn:hover {
+  background-color: #3a4e48;
+}
+
+/* ─── CustomersSay ───────────────────────────────────────────── */
+
+.customers-say {
+  padding: 3rem 2rem;
+  background-color: #f9f6ef;
+}
+
+.customers-say__heading {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.customers-say__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-card__star {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.testimonial-card__star--filled {
+  color: #F4CE14;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-card__avatar {
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0ede6;
+  border-radius: 50%;
+}
+
+.testimonial-card__name {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.testimonial-card__review {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.65;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ─── Chicago ────────────────────────────────────────────────── */
+
+.chicago {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.chicago__content {
+  flex: 1 1 320px;
+  max-width: 520px;
+}
+
+.chicago__title {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 3.5rem;
+  color: #495E57;
+  margin: 0 0 -0.5rem 0;
+  line-height: 1;
+}
+
+.chicago__location {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  font-weight: 400;
+}
+
+.chicago__body {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.chicago__images {
+  flex: 1 1 240px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+.chicago__img-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 5rem;
+}
+
+.chicago__img-box--top {
+  background-color: #495E57;
+  top: 0;
+  left: 10%;
+  z-index: 2;
+}
+
+.chicago__img-box--bottom {
+  background-color: #F4CE14;
+  bottom: 0;
+  right: 10%;
+  z-index: 1;
+}
+
+/* ─── BookingForm ────────────────────────────────────────────── */
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.booking-form .booking__submit-btn {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 560px) {
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── BookingPage ────────────────────────────────────────────── */
+
+.booking {
+  background-color: #495E57;
+  padding: 4rem 2rem;
+}
+
+.booking__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.booking__header {
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.booking__title {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 3rem;
+  color: #F4CE14;
+  margin: 0 0 0.5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.booking__subtitle {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.85;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.booking__error {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.95rem;
+  color: #c0392b;
+  background-color: #fdecea;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.booking__form-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.booking__row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.booking__field {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1 1 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.booking__label {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.booking__input {
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #fafafa;
+}
+
+.booking__input:focus {
+  border-color: #495E57;
+}
+
+.booking__submit-btn {
+  display: block;
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.booking__submit-btn:hover {
+  background-color: #e0b800;
+}
+
+.booking__success {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.booking__success-icon {
+  font-size: 3rem;
+}
+
+.booking__success-title {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2.5rem;
+  color: #495E57;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.booking__success-msg {
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.booking__reset-btn {
+  background-color: #495E57;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.booking__reset-btn:hover {
+  background-color: #3a4e48;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding-top: 3rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 2.5rem;
+}
+
+.footer__brand {
+  flex: 1 1 200px;
+}
+
+.footer__logo {
+  font-family: 'Markazi Text', Georgia, serif;
+  font-size: 2rem;
+  color: #F4CE14;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footer__tagline {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.footer__link-group {
+  flex: 1 1 140px;
+}
+
+.footer__link-group-title {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F4CE14;
+  margin: 0 0 1rem 0;
+}
+
+.footer__link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__link {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__link:hover {
+  color: #F4CE14;
+}
+
+.footer__contact-item {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.footer__copyright {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
 }
